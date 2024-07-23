@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Example</title>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    }
+    #container {
+        text-align: center;
+        padding: 20px;
+    }
+    #colorText {
+        display: inline-block;
+        padding: 10px;
+        background-color: rgb(3, 3, 3);
+        color: rgb(255, 255, 255);
+        border-radius: 5px;
+        
+    }
+    button {
+        margin-top: 20px;
+        padding: 10px;
+        cursor: pointer;
+        font-size: larger;
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+        <div id="colorText">Background Color: <span id="colorName">White</span></div><br>
+        <button onclick="Background()">Click here</button>
+    </div>
+    <script>
+        const colors = ['yellow','Red', 'Orange', 'Green', 'Pink','Blue','Violet'];
+        let currentIndex = 0;
+
+        function Background() {
+            currentIndex = (currentIndex + 1) % colors.length;
+            const newColor = colors[currentIndex];
+            document.body.style.backgroundColor = newColor.toLowerCase();
+            document.getElementById('colorName').textContent = newColor;
+            document.getElementById('colorText').style.backgroundColor = newColor.toLowerCase();
+            document.getElementById('colorText').style.color = (newColor === 'Yellow' || newColor === 'White') ? 'black' : 'white';
+        }
+    </script>
+</body>
+</html>
